@@ -248,11 +248,12 @@
             <span class="pipeline-step">打标规则生成</span><span class="pipeline-arrow">→</span>
             <span class="pipeline-step">数据打标</span><span class="pipeline-arrow">→</span>
             <span class="pipeline-step">章节规划</span><span class="pipeline-arrow">→</span>
+            <span class="pipeline-step">指标体系设计</span><span class="pipeline-arrow">→</span>
             <span class="pipeline-step">逐章生成</span><span class="pipeline-arrow">→</span>
             <span class="pipeline-step">报告组装</span>
           </div>
           <p class="about-text" style="margin-top:10px;color:#9aa1b5;font-size:0.9rem;">
-            已跑通数据打标环节，正在向全链路推进。
+            已跑通数据打标、章节规划与指标体系设计环节，正在向全链路推进。
           </p>
         </div>
       </div>
@@ -265,8 +266,18 @@
       <h2 class="section-title">联系 &amp; 更多</h2>
       <p class="contact-text">欢迎交流，期待合作</p>
       <div class="contact-links">
-        <a href="mailto:your-email@example.com" class="contact-item">📧 邮箱联系</a>
+        <div class="contact-item" id="wechatBtn">📱 微信联系</div>
         <a href="https://github.com/xiaolu-fzu/data-labeling-workflow" target="_blank" class="contact-item">💻 GitHub</a>
+      </div>
+      <!-- WeChat QR Code Modal -->
+      <div class="modal-overlay" id="wechatModal">
+        <div class="modal modal-small" onclick="event.stopPropagation()">
+          <button class="modal-close" onclick="document.getElementById('wechatModal').classList.remove('show');document.body.style.overflow=''">✕</button>
+          <div class="modal-title">微信联系</div>
+          <div style="text-align:center;padding:10px 0;">
+            <img src="微信二维码/b59c1e61ff6b95d2141f0a3c2406dc5b.jpg" alt="微信二维码" style="max-width:280px;border-radius:8px;">
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -618,6 +629,16 @@
 
     window.addEventListener('scroll', updateActiveNav, { passive: true });
     window.addEventListener('load', updateActiveNav);
+
+    // WeChat QR modal
+    document.getElementById('wechatBtn').addEventListener('click', () => {
+      document.getElementById('wechatModal').classList.add('show');
+      document.body.style.overflow = 'hidden';
+    });
+    document.getElementById('wechatModal').addEventListener('click', () => {
+      document.getElementById('wechatModal').classList.remove('show');
+      document.body.style.overflow = '';
+    });
   </script>
 </body>
 </html>
