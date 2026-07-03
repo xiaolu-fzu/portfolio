@@ -43,7 +43,30 @@
     <div class="container">
       <h2 class="section-title">项目经历</h2>
 
-      <!-- 项目一：绝区零（有表格） -->
+      <!-- 项目一：AI工作流优化（无表格） -->
+      <div class="card">
+        <div class="card-header">
+          <span class="card-tag tag-ai">AI 优化</span>
+          <h3>数据分析 AI 工作流 · 数据打标节点优化</h3>
+        </div>
+        <p class="card-summary">
+          Python + 大模型协同架构：固定逻辑由 Python 直接执行，仅判断与推理环节调用大模型，
+          大模型返回可执行代码完成处理，而非逐条数据调用。
+        </p>
+        <ul class="card-results">
+          <li>单次任务 <strong class="num">Token 消耗压至百万以下</strong>，成本降至 <strong class="num">几毛钱级别</strong>（DeepSeek 模型）</li>
+          <li>设计 Python + LLM 协同架构：规则匹配/格式转换走 Python，推理判断走大模型，大幅削减无效调用</li>
+          <li>保证标注质量的同时将运营成本降至极低，方案已被团队沿用</li>
+        </ul>
+        <div class="card-extras">
+          <span class="extra-item">🔗 <a href="https://github.com/xiaolu-fzu/data-labeling-workflow" target="_blank">GitHub: data-labeling-workflow</a></span>
+        </div>
+        <div class="card-tags">
+          <span>Python</span><span>Prompt 工程</span><span>成本优化</span><span>架构设计</span>
+        </div>
+      </div>
+
+      <!-- 项目二：绝区零（有表格） -->
       <div class="card" data-report="zzzCC">
         <div class="card-header">
           <span class="card-tag tag-community">决策报告</span>
@@ -142,18 +165,10 @@
         </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ====== 工具 & 方法 ====== -->
-  <section class="section" id="tools">
-    <div class="container">
-      <h2 class="section-title">工具 &amp; 方法</h2>
-
-      <!-- 卡片一：行研工作流 -->
+      <!-- 项目七：方法 & 工具链 -->
       <div class="card">
         <div class="card-header">
-          <span class="card-tag tag-method">方法论</span>
+          <span class="card-tag tag-method">方法 & 工具链</span>
           <h3>行研报告自动生成工作流</h3>
         </div>
         <p class="card-summary">
@@ -162,54 +177,14 @@
         </p>
         <ul class="card-results">
           <li><strong>全景</strong>：决策需求 → 分析框架设计 → 数据采集/治理/打标 → 指标体系建立 → 定量定性融合 → 结论输出</li>
-          <li><strong>结论分子池</strong>：从商业问题出发，将章节论题拆解为独立"分子"——含对应章节、数据来源、核心命题、口径边界。输出每个章节的大体内容与规划框架</li>
-          <li><strong>指标体系设计</strong>：将章节构念拆解为可计算指标——定义字段、计算方法、口径边界。输出一份可直接落地的指标设计指南</li>
-        </ul>
-        <div class="card-tags">
-          <span>提示词工程</span><span>工作流设计</span><span>SOP</span>
-        </div>
-      </div>
-
-      <!-- 卡片二：AI打标优化 -->
-      <div class="card">
-        <div class="card-header">
-          <span class="card-tag tag-method">工具</span>
-          <h3>数据分析 AI 工作流 · 数据打标节点优化</h3>
-        </div>
-        <p class="card-summary">
-          Python + 大模型协同架构：固定逻辑由 Python 直接执行，仅判断与推理环节调用大模型，
-          大模型返回可执行代码完成处理，而非逐条数据调用。
-        </p>
-        <ul class="card-results">
-          <li>单次任务 <strong class="num">Token 消耗压至百万以下</strong>，成本降至 <strong class="num">几毛钱级别</strong>（DeepSeek 模型）</li>
-          <li>设计 Python + LLM 协同架构：规则匹配/格式转换走 Python，推理判断走大模型</li>
-          <li>保证标注质量的同时将运营成本降至极低，方案已被团队沿用</li>
+          <li><strong>结论分子池</strong>：将每条结论标准化为独立"分子"——含数据来源、可信度标签、适用范围，报告撰写时按需取用，每条结论可追溯</li>
+          <li><strong>指标体系设计</strong>：先定义分析框架（构念级），再拆解为具体指标（计算级），确保每个数字都指向一个具体的商业问题</li>
         </ul>
         <div class="card-extras">
-          <span class="extra-item">🔗 <a href="https://github.com/xiaolu-fzu/data-labeling-workflow" target="_blank">GitHub: data-labeling-workflow</a></span>
+          <span class="extra-item">📋 结论分子池示例（待补充）</span>
         </div>
         <div class="card-tags">
-          <span>Python</span><span>Prompt 工程</span><span>成本优化</span>
-        </div>
-      </div>
-
-      <!-- 卡片三：Tableau -->
-      <div class="card">
-        <div class="card-header">
-          <span class="card-tag tag-method">可视化</span>
-          <h3>Tableau 业务看板 · 每日业务总览</h3>
-        </div>
-        <p class="card-summary">
-          基于真实业务数据搭建的每日业务总览看板，多图表联动展示核心业务指标的实时状态。
-        </p>
-        <ul class="card-results">
-          <li>产出物：交互式 Tableau 看板，含多个图表视图，覆盖业务概览所需的关键维度</li>
-        </ul>
-        <div class="card-extras">
-          <span class="extra-item">🔗 <a href="https://public.tableau.com/views/_17781653037140/sheet10" target="_blank">查看看板 →</a></span>
-        </div>
-        <div class="card-tags">
-          <span>Tableau</span><span>可视化看板</span><span>业务监控</span>
+          <span>提示词工程</span><span>工作流设计</span><span>方法论</span><span>SOP</span>
         </div>
       </div>
 
