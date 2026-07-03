@@ -508,6 +508,25 @@ a {
   font-weight: 600;
 }
 
+/* Step table variant (for workflow process steps) */
+.report-table.step-table th {
+  background: rgba(96, 165, 250, 0.15);
+  color: #60a5fa;
+  border-bottom-color: rgba(96, 165, 250, 0.25);
+}
+
+.report-table.step-table td:first-child {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+/* Result table variant (for actual output/preview data) */
+.report-table.result-table th {
+  background: rgba(126, 207, 192, 0.1);
+  color: #7ecfc0;
+  border-bottom-color: rgba(126, 207, 192, 0.15);
+}
+
 /* ====== Modal ====== */
 .modal-overlay {
   position: fixed;

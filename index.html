@@ -27,7 +27,7 @@
       <h1 class="hero-name">李嘉豪</h1>
       <p class="hero-tagline">从数据到洞察，从打标到报告</p>
       <p class="hero-desc">
-        专注游戏行业，用数据支撑商业决策。从海外舆情监控到 AIGC 用户调研，
+        用数据支撑商业决策。从海外舆情监控到 AIGC 用户调研，
         从创作者评估到 AI 工作流优化——既能在数据中找到答案，
         也能用工具把分析效率提起来。
       </p>
@@ -319,6 +319,7 @@
         tables: [
           {
             title: '结论分子池 — 完整 6 步流程',
+            class: 'step-table',
             thead: ['步骤','名称','核心产出'],
             tbody: [
               ['Step1','三级推导树（Issue/Driver Tree）','3-5个互斥分支，每个分支2-4子驱动，叶子节点有判定标准'],
@@ -331,6 +332,7 @@
           },
           {
             title: '分子池实际产出示例（C1-C6 章节规划）',
+            class: 'result-table',
             thead: ['章节','标题','核心问题数','主数据源'],
             tbody: [
               ['C1','研究范围与数据基础','5个','无（引用所有数据源）'],
@@ -343,6 +345,7 @@
           },
           {
             title: '指标体系设计 — 完整 5 步流程',
+            class: 'step-table',
             thead: ['步骤','名称','核心产出'],
             tbody: [
               ['Step0','快速理解校验','理解项目背景、章节结构、数据字段'],
@@ -353,13 +356,18 @@
             ]
           },
           {
-            title: '指标体系产出示例（T1 生态规模与商单渗透度）',
-            thead: ['维度','指标','计算方法','业务意义'],
+            title: '指标体系产出示例（T2-T4 复杂指标选摘）',
+            class: 'result-table',
+            thead: ['待设计项','维度','指标','计算方法','业务意义'],
             tbody: [
-              ['帖文规模','高曝光二创总帖数','COUNT(打标数据集)','生态体量基本度量'],
-              ['帖文规模','日均高曝光二创帖数','总帖数/覆盖天数','消除版本长度差异'],
-              ['商单渗透度','明确商单帖占比','COUNT(商单)/总帖数','付费内容渗透率'],
-              ['商单渗透度','自然二创净数量','总帖数-商单帖数','生态原生活力'],
+              ['T2 内容类型分布与消费效率','消费效率','中位点赞率','点赞量/浏览量取全组中位数','用户平均认可成本'],
+              ['T2 内容类型分布与消费效率','消费效率','中位评论率','评论数/浏览量取全组中位数','讨论深度'],
+              ['T2 内容类型分布与消费效率','多元性风险','类型集中度HHI','Σ(各类型占比²)','>0.2提示结构高度集中'],
+              ['T2 内容类型分布与消费效率','多元性风险','前两大类型占比CR2','占比Top2相加','CR2>70%风险较高'],
+              ['T2 内容类型分布与消费效率','角色热度','角色出现帖数与平均点赞交叉','角色帖数×平均点赞','高热度/潜力角色识别'],
+              ['T3 社区健康度诊断','头部依赖','头部创作者热度贡献比(Pareto)','Top1%创作者热度累计/总热度','量化头部依赖风险'],
+              ['T4 运营效果评估','商单效率','商单效率比','商单中位点赞率/自然高质量中位点赞率','商单相对效率'],
+              ['T4 运营效果评估','杠杆效应','约稿期原生增量','(约稿期自然二创量-基线期自然二创量)/基线期','付费带动自然的杠杆率'],
             ]
           },
         ]
@@ -584,8 +592,8 @@
     // ================================================================
     // Render table from data
     // ================================================================
-    function renderTable(tableData) {
-      let html = '<div class="table-wrap"><table class="report-table">';
+    function renderTable(tableData, extraClass) {
+      let html = '<div class="table-wrap"><table class="report-table' + (extraClass ? ' ' + extraClass : '') + '">';
       // Header
       html += '<thead><tr>';
       tableData.thead.forEach(h => { html += `<th>${h}</th>`; });
@@ -624,7 +632,7 @@
       const preview = document.createElement('div');
       preview.className = 'report-preview';
       preview.innerHTML = '<div class="preview-title">' + data.preview.title + '</div>' +
-        renderTable(data.preview);
+        renderTable(data.preview, data.preview.class || '');
 
       btn.appendChild(preview);
 
@@ -655,7 +663,7 @@
       const body = document.getElementById('modalBody');
       body.innerHTML = '';
       data.tables.forEach(t => {
-        body.innerHTML += '<h4 class="table-section-title">' + t.title + '</h4>' + renderTable(t);
+        body.innerHTML += '<h4 class="table-section-title">' + t.title + '</h4>' + renderTable(t, t.class || '');
       });
       document.getElementById('modalOverlay').classList.add('show');
       document.body.style.overflow = 'hidden';
